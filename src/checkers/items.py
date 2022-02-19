@@ -17,4 +17,3 @@ class Player:
         """Create a player to participate in the game."""
         self.name = name
 
-

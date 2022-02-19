@@ -1,5 +1,5 @@
 """Create a game to play checkers."""
-from items import GameBoard
+from .items import GameBoard, Player
 
 
 class Game:
@@ -9,3 +9,6 @@ class Game:
         """Set a game up with players and board_size."""
         self.total_players = total_players
         self.board_size = GameBoard(x=board_size, y=board_size)
+
+    def draw_board(self):
+        print("Drawing the board")
