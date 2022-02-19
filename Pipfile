@@ -4,10 +4,10 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-python-lsp-server = {extras = ["all"], version = "*"}
 
 [dev-packages]
 pytest = "*"
+python-lsp-server = {extras = ["all"], version = "*"}
 
 [requires]
 python_version = "3.9"
