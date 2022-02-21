@@ -1,2 +1,0 @@
-"""The checkers module."""
-
