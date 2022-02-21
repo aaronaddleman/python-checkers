@@ -10,7 +10,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')
 
 @pytest.fixture
 def gameboard():
-    """Test a two player game"""
+    """Test gameboard properties"""
     game = GameBoard(total_rows=8, total_cols=8)
     return game
 
