@@ -75,6 +75,27 @@ class GameBoard:
                 print(f"| {player_peice} {space_color}", end="")
             print("")
 
+    def stats(self):
+        """Return the stats of the board"""
+        data = {
+            'num_of_player_peices': 0,
+            'num_of_black_peices': 0,
+            'num_of_white_peices': 0
+        }
+
+        for row in self.grid:
+            for col in row:
+                if col.get('player'):
+                    data['num_of_player_peices'] += 1
+                    if col['player'] == 'black':
+                        data['num_of_black_peices'] += 1
+                    if col['player'] == 'white':
+                        data['num_of_white_peices'] += 1
+
+        return data
+
+
+
 
 class Player:
     """Create a player."""
