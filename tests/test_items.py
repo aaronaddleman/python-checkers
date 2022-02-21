@@ -18,8 +18,9 @@ class TryTesting(TestCase):
         self.assertTrue(True)
 
     def test_two_player_game(self):
-        game = GameBoard(x=6, y=6)
+        game = GameBoard(total_rows=8, total_cols=8)
         assert isinstance(game, GameBoard)
 
         player_rafael = Player(name="Rafael")
         assert isinstance(player_rafael, Player)
+
