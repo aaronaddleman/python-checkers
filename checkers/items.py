@@ -63,10 +63,16 @@ class GameBoard:
         for row in self.grid:
             for col in row:
                 if col['color'] == 'black':
-                    symbol = "*"
+                    space_color = "b"
                 if col['color'] == 'white':
-                    symbol = "-"
-                print(symbol, end="")
+                    space_color = "w"
+                # set default player peice to be blank
+                player_peice = "  "
+                # if a player exists and is white
+                if col.get('player'):
+                    player_peice = f" {col['player_symbol']}"
+                # print the columns in the row
+                print(f"| {player_peice} {space_color}", end="")
             print("")
 
 
