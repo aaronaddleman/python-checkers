@@ -25,4 +25,13 @@ def test_gameboard(gameboard):
     # what they should be based on the size of the board
     assert white_square == "white"
     assert black_square == "black"
-
+    # add peices to the board
+    gameboard.add_player_peices()
+    # count things on the board
+    stats = gameboard.stats()
+    # we should start out with 24 peices on the board
+    assert stats['num_of_player_peices'] == 24
+    # we should have 12 black
+    assert stats['num_of_black_peices'] == 12
+    # we should have 12 white
+    assert stats['num_of_white_peices'] == 12
