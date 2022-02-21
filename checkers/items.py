@@ -40,8 +40,8 @@ class GameBoard:
             rows.append(cols)
         self.grid = rows
 
-    def add_player_peices(self):
-        """Add player peices to the board"""
+    def add_player_pieces(self):
+        """Add player pieces to the board"""
         # white side, first 3 rows
         for index, row in enumerate(self.grid):
             if index < 3:
@@ -78,19 +78,19 @@ class GameBoard:
     def stats(self):
         """Return the stats of the board"""
         data = {
-            'num_of_player_peices': 0,
-            'num_of_black_peices': 0,
-            'num_of_white_peices': 0
+            'num_of_player_pieces': 0,
+            'num_of_black_pieces': 0,
+            'num_of_white_pieces': 0
         }
 
         for row in self.grid:
             for col in row:
                 if col.get('player'):
-                    data['num_of_player_peices'] += 1
+                    data['num_of_player_pieces'] += 1
                     if col['player'] == 'black':
-                        data['num_of_black_peices'] += 1
+                        data['num_of_black_pieces'] += 1
                     if col['player'] == 'white':
-                        data['num_of_white_peices'] += 1
+                        data['num_of_white_pieces'] += 1
 
         return data
 
