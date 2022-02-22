@@ -14,6 +14,14 @@ def gameboard():
     game = GameBoard(total_rows=8, total_cols=8)
     return game
 
+@pytest.fixture
+def players():
+    """Create some players"""
+    player_black = Player(color="black", name="Beta")
+    player_white = Player(color="white", name="Lambda")
+    players = (player_black, player_white)
+    return players
+
 def test_gameboard(gameboard):
     assert isinstance(gameboard, GameBoard)
     gameboard.build_board()
@@ -35,3 +43,7 @@ def test_gameboard(gameboard):
     assert stats['num_of_black_pieces'] == 12
     # we should have 12 white
     assert stats['num_of_white_pieces'] == 12
+
+def test_players(players):
+    for player in players:
+        assert isinstance(player, Player)

@@ -100,7 +100,7 @@ class GameBoard:
 class Player:
     """Create a player."""
 
-    def __init__(self, name=False):
+    def __init__(self, color=False, name=False):
         """Create a player to participate in the game."""
         self.name = name
 
