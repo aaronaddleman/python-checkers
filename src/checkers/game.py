@@ -1,6 +1,4 @@
 """Create a game to play checkers."""
-from .items import GameBoard, Player
-
 
 class Game:
     """Start a game."""

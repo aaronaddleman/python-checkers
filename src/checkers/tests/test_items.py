@@ -3,9 +3,10 @@ import sys
 from unittest import TestCase
 
 import pytest
-from checkers.items import GameBoard, Player
+from checkers.board import GameBoard
+from checkers.player import Player
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+#sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 
 @pytest.fixture
@@ -33,8 +34,11 @@ def test_gameboard(gameboard):
     # what they should be based on the size of the board
     assert white_square == "white"
     assert black_square == "black"
+    # create players
+    player_black = Player(color="black", name="Beta")
+    player_white = Player(color="white", name="Lambda")
     # add pieces to the board
-    gameboard.add_player_pieces()
+    gameboard.add_player_pieces(player_white=player_white, player_black=player_black)
     # count things on the board
     stats = gameboard.stats()
     # we should start out with 24 pieces on the board

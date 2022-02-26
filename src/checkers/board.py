@@ -1,9 +1,3 @@
-"""All items that are part of the checkers game."""
-import logging
-
-PLAYER_WHITE="\u0398"
-PLAYER_BLACK="\u03BB"
-
 class GameBoard:
     """Create a game board."""
 
@@ -40,7 +34,7 @@ class GameBoard:
             rows.append(cols)
         self.grid = rows
 
-    def add_player_pieces(self):
+    def add_player_pieces(self, player_white=None, player_black=None):
         """Add player pieces to the board"""
         # white side, first 3 rows
         for index, row in enumerate(self.grid):
@@ -49,13 +43,13 @@ class GameBoard:
                     if col['color'] == 'black':
                         # add a player peice
                         col['player'] = 'white'
-                        col['player_symbol'] = PLAYER_WHITE
+                        col['player_symbol'] = player_white.player_symbol
             if index > 4:
                 for col in row:
                     if col['color'] == 'black':
                         # add a player peice
                         col['player'] = 'black'
-                        col['player_symbol'] = PLAYER_BLACK
+                        col['player_symbol'] = player_black.player_symbol
 
 
     def print_board(self):
@@ -93,17 +87,3 @@ class GameBoard:
                         data['num_of_white_pieces'] += 1
 
         return data
-
-
-
-
-class Player:
-    """Create a player."""
-
-    def __init__(self, color=False, name=False):
-        """Create a player to participate in the game."""
-        self.name = name
-
-    def stats(self):
-        """Print the players status."""
-        return {"points": 0}
