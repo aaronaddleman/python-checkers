@@ -1,8 +1,12 @@
-"""All items that are part of the checkers game."""
-import logging
+"""Manage the board object(s)"""
 
-PLAYER_WHITE="\u0398"
-PLAYER_BLACK="\u03BB"
+
+def find_color(column=0, row=0):
+    """Return color if value is even or odd."""
+    if (column + row) % 2 == 0:
+        return "white"
+    return "black"
+
 
 class GameBoard:
     """Create a game board."""
@@ -12,13 +16,6 @@ class GameBoard:
         self.total_rows = total_rows
         self.total_cols = total_cols
         self.grid = []
-
-    def find_color(self, v1=0, v2=0):
-        """Return color if value is even or odd."""
-        if (v1 + v2) % 2 == 0:
-            return "white"
-        else:
-            return "black"
 
     def build_board(self):
         """Build the matrix of the board."""
@@ -33,14 +30,14 @@ class GameBoard:
                 # add the data of the cell to the cols
                 position = f"{i}{j}"
                 # find the color based on number
-                color = self.find_color(v1=i, v2=j)
+                color = find_color(column=i, row=j)
                 data = {"r": i, "c": j, "p": position, "color": color}
                 cols.append(data)
             # add the cols to the row
             rows.append(cols)
         self.grid = rows
 
-    def add_player_pieces(self):
+    def add_player_pieces(self, player_white=None, player_black=None):
         """Add player pieces to the board"""
         # white side, first 3 rows
         for index, row in enumerate(self.grid):
@@ -49,14 +46,13 @@ class GameBoard:
                     if col['color'] == 'black':
                         # add a player peice
                         col['player'] = 'white'
-                        col['player_symbol'] = PLAYER_WHITE
+                        col['player_symbol'] = player_white.player_symbol
             if index > 4:
                 for col in row:
                     if col['color'] == 'black':
                         # add a player peice
                         col['player'] = 'black'
-                        col['player_symbol'] = PLAYER_BLACK
-
+                        col['player_symbol'] = player_black.player_symbol
 
     def print_board(self):
         """Print the current status of the board."""
@@ -93,17 +89,3 @@ class GameBoard:
                         data['num_of_white_pieces'] += 1
 
         return data
-
-
-
-
-class Player:
-    """Create a player."""
-
-    def __init__(self, name=False):
-        """Create a player to participate in the game."""
-        self.name = name
-
-    def stats(self):
-        """Print the players status."""
-        return {"points": 0}

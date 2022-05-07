@@ -8,6 +8,7 @@ name = "pypi"
 [dev-packages]
 pytest = "*"
 python-lsp-server = {extras = ["all"], version = "*"}
+coverage = "*"
 
 [requires]
 python_version = "3.9"
