@@ -54,7 +54,7 @@ class GameBoard:
                         col['player'] = 'black'
                         col['player_symbol'] = player_black.player_symbol
 
-    def print_board(self):
+    def print_board(self, showNumbers=False):
         """Print the current status of the board."""
         for row in self.grid:
             for col in row:
@@ -68,7 +68,11 @@ class GameBoard:
                 if col.get('player'):
                     player_peice = f" {col['player_symbol']}"
                 # print the columns in the row
-                print(f"| {player_peice} {space_color}", end="")
+                if showNumbers:
+                    print(f"| {col['r']},{col['c']} {player_peice} {space_color}", end="")
+                else:
+                    print(f"| {player_peice} {space_color}", end="")
+
             print("")
 
     def stats(self):
@@ -89,3 +93,13 @@ class GameBoard:
                         data['num_of_white_pieces'] += 1
 
         return data
+
+    def possible_moves(self, row=None, col=None):
+        """List possible moves for selected row and column"""
+        list_of_moves = []
+        new_row = row + 1
+        if col < 7:
+            list_of_moves.append({"r": new_row, "c": col + 1})
+        if col > 0:
+            list_of_moves.append({"r": new_row, "c": col - 1})
+        return list_of_moves
