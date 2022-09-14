@@ -1,4 +1,4 @@
-"""Manage the board object(s)"""
+"""Manage the board object(s)."""
 
 
 def find_color(column=0, row=0):
@@ -38,7 +38,7 @@ class GameBoard:
         self.grid = rows
 
     def add_player_pieces(self, player_white=None, player_black=None):
-        """Add player pieces to the board"""
+        """Add player pieces to the board."""
         # white side, first 3 rows
         for index, row in enumerate(self.grid):
             if index < 3:
