@@ -1,0 +1,11 @@
+{
+    "include": [
+        "src/checkers"
+    ],
+    "exclude": [
+        "**/__pycache__"
+    ],
+
+    "reportMissingImports": "error",
+    "reportMissingTypeStubs": "none"
+}
