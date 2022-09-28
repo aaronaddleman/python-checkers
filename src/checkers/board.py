@@ -56,6 +56,7 @@ class GameBoard:
 
     def print_board(self, showNumbers=False):
         """Print the current status of the board."""
+        results = ""
         for row in self.grid:
             for col in row:
                 if col['color'] == 'black':
@@ -69,11 +70,10 @@ class GameBoard:
                     player_peice = f" {col['player_symbol']}"
                 # print the columns in the row
                 if showNumbers:
-                    print(f"| {col['r']},{col['c']} {player_peice} {space_color}", end="")
+                    results += f"| {col['r']},{col['c']} {player_peice} {space_color}"
                 else:
-                    print(f"| {player_peice} {space_color}", end="")
-
-            print("")
+                    results += f"| {player_peice} {space_color}"
+        return results
 
     def stats(self):
         """Return the stats of the board."""
