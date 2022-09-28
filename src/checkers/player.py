@@ -1,4 +1,4 @@
-"""Create and manage a player for checkers game"""
+"""Create and manage a player for checkers game."""
 PLAYER_WHITE = "ϕ"
 PLAYER_BLACK = "⦁"
 
@@ -13,7 +13,7 @@ class Player:
         self.set_symbol()
 
     def set_symbol(self):
-        """Set the symbol for player based on the color"""
+        """Set the symbol for player based on the color."""
         if self.color == "white":
             self.player_symbol = PLAYER_WHITE
         if self.color == "black":

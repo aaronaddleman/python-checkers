@@ -3,9 +3,13 @@ name = "python-checkers"
 version = "0.1.0"
 description = "Simple python checkers game to practice coding"
 authors = ["Aaron Addleman <aaronaddleman@gmail.com>"]
+packages = [
+         { include = "checkers", from = "src" }
+]
 
 [tool.poetry.dependencies]
 python = "^3.9"
+docopt = "^0.6.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1.2"
@@ -14,3 +18,12 @@ pytest-coverage = "^0.0"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+pycheckers = "src.checkers.cli:main"
+
+[tool.pytest.ini_options]
+addopts = "-ra -q"
+testpaths = [
+    "tests",
+]
