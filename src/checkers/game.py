@@ -16,6 +16,8 @@ class Game:
         # add players
         player1black = Player(color="black")
         player2white = Player(color="white")
-        self.gameboard.add_player_pieces(player_black=player1black, player_white=player2white)
+        self.gameboard.add_player_pieces(
+            player_black=player1black,
+            player_white=player2white)
         # print the board
         self.gameboard.print_board()

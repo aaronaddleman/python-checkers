@@ -76,7 +76,7 @@ class GameBoard:
             print("")
 
     def stats(self):
-        """Return the stats of the board"""
+        """Return the stats of the board."""
         data = {
             'num_of_player_pieces': 0,
             'num_of_black_pieces': 0,
@@ -95,7 +95,7 @@ class GameBoard:
         return data
 
     def possible_moves(self, row=None, col=None):
-        """List possible moves for selected row and column"""
+        """List possible moves for selected row and column."""
         list_of_moves = []
         new_row = row + 1
         if col < 7:

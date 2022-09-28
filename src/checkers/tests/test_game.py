@@ -27,3 +27,7 @@ def test_creating_game():
 
 def test_printing_board():
     return True
+
+
+def test_starting_game():
+    return True
