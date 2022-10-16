@@ -94,10 +94,36 @@ class GameBoard:
 
         return data
 
+    def check_space_status(self, row=None, col=None, mode=None):
+        """Return the status of a space."""
+        if row is None:
+            raise "Must have a row defined."
+        if row > self.total_rows or row < 1:
+            raise f"Row must be between 1 and {self.total_rows}."
+        if col is None:
+            raise "Must have a col defined."
+        if col > self.total_cols or col < 1:
+            raise f"Col must be between 1 and {self.total_cols}."
+        # mode
+        mode_values = ["is_occupied", "is_free", "player_color"]
+        if mode is None or mode not in mode_values:
+            raise f"Mode must be one of these values: {mode_values}"
+        # get selected space
+        selected_space = self.grid[row][col]
+        # return the selected space
+        if mode == "is_occupied" or mode == "player_color":
+            return selected_space.get('player', False)
+
     def possible_moves(self, row=None, col=None):
         """List possible moves for selected row and column."""
         list_of_moves = []
+        player_color = self.check_space_status(row=row,
+                                               col=col,
+                                               mode="player_color")
+        if player_color == "black":
+            new_row = row - 1
         new_row = row + 1
+
         if col < 7:
             list_of_moves.append({"r": new_row, "c": col + 1})
         if col > 0:
