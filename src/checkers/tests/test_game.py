@@ -91,7 +91,7 @@ def test_finding_move_for_black():
     board.build_board()
     board.add_player_pieces(player_white=playerWhite,
                             player_black=playerBlack)
-    moves = board.possible_moves(row=6, col=1)
+    moves = board.possible_moves(row=1, col=1)
     assert moves is ["1"]
 
 

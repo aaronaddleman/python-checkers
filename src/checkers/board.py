@@ -70,7 +70,8 @@ class GameBoard:
                     player_peice = f" {col['player_symbol']}"
                 # print the columns in the row
                 if showNumbers:
-                    results += f"| {col['r']},{col['c']} {player_peice} {space_color}"
+                    results += f"| {col['r']},{col['c']} " \
+                        f"{player_peice} {space_color}"
                 else:
                     results += f"| {player_peice} {space_color}"
         return results
